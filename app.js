@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import conn from "./db.js";
 import pageRoute from "./routers/pageRoute.js";
 import photosRoute from "./routers/photoRoute.js";
+import userRoute from "./routers/userRoute.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.set("view engine", "ejs");
 //publicin icindekiler static dedik yani bunu tanımladık
 app.use(express.static('public'));
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 // app.get("/", (req, res) => {
 //   res.render("index");
@@ -32,6 +34,8 @@ app.use(express.json());
 //routes
 app.use("/",pageRoute );
 app.use("/photos", photosRoute );
+app.use("/users", userRoute );
+
 
 //get metodu, ilgili yonlendirmeyi yapar
 // projemizin kok adresindeki istek gönderdiğimizde get isteği yapması gereken seyi söylüyoruz
