@@ -21,7 +21,6 @@ const loginUser = async (req, res) => {
   try {
     const {username, password} = req.body;
    
-
     const user = User.findOnve({username})
 
     let same = false;
