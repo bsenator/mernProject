@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import pageRoute from "./routers/pageRoute.js";
 import photosRoute from "./routers/photoRoute.js";
 import userRoute from "./routers/userRoute.js";
+import { checkUser } from "./middlewares/authMiddleware.js";
 
 
 dotenv.config();
@@ -35,6 +36,7 @@ app.use(cookieParser());
 // });
 
 //routes
+app.get("*", checkUser);
 app.use("/",pageRoute );
 app.use("/photos", photosRoute );
 app.use("/users", userRoute );

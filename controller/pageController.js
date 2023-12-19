@@ -19,10 +19,17 @@ const getRegisterPage =(req,res) => {
     });
 };
 
+const getLogoutPage =(req,res) => {
+    res.cookie('jwt', '' , {
+        maxAge: 1,
+    });
+    res.redirect('/');
+};
+
 const getLoginPage =(req,res) => {
     res.render('login', {
     link: 'login',
     });
 };
 
-export {getIndexPage,getAboutPage,getRegisterPage,getLoginPage};
+export {getIndexPage,getAboutPage,getRegisterPage,getLoginPage, getLogoutPage};
