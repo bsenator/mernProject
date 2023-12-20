@@ -1,11 +1,11 @@
 import express from "express";
-import * as photosController from "../controller/photosController.js";
+import * as photoController from "../controller/photoController.js";
 
 const router = express.Router();
 
 router
   .route("/")
-  .post(photosController.createPhoto)
-  .get(photosController.getAllPhotos);
-router.route("/:id").get(photosController.getAllPhoto)
+  .post(photoController.createPhoto)
+  .get(photoController.getAllPhotos);
+router.route("/:id").get(photoController.getAllPhoto)
 export default router;

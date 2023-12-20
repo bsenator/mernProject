@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import conn from "./db.js";
 import cookieParser from "cookie-parser";
 import pageRoute from "./routers/pageRoute.js";
-import photosRoute from "./routers/photoRoute.js";
+import photoRoute from "./routers/photoRoute.js";
 import userRoute from "./routers/userRoute.js";
 import { checkUser } from "./middlewares/authMiddleware.js";
 
@@ -36,9 +36,9 @@ app.use(cookieParser());
 // });
 
 //routes
-app.get("*", checkUser);
+app.use("*", checkUser);
 app.use("/",pageRoute );
-app.use("/photos", photosRoute );
+app.use("/photos", photoRoute );
 app.use("/users", userRoute );
 
 

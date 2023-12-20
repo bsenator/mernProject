@@ -12,7 +12,7 @@ const checkUser = async (req, res, next) => {
         next();
       } else {
         const user = await User.findById(decodedToken.userId);
-        res.locals.user = user;
+        res.locals.user = user; //hangi kullanıcı oldguunu tutuoyrum
         next();
       }
     });
